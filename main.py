@@ -1,7 +1,11 @@
 from fastapi import FastAPI
 
-app = FastAPI()
+app = FastAPI(title="FastAPI Docker Test")
 
 @app.get("/")
-def read_root():
-    return {"message": "Hi 👋 Coolify is working on Hetzner!"}
+def root():
+    return {"message": "Hi 👋 Docker FastAPI is working!"}
+
+@app.get("/health")
+def health():
+    return {"status": "ok"}
